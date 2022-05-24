@@ -36,6 +36,7 @@ Both backend and frontend use typescript. Not really a fan of it, but I think th
 ## Usage
 
 - If you don't have `nx` installed globally, then simply run `npx nx dev server` to run backend or `npx nx dev web` to run frontend.
+
 - Or you can run `yarn dev` and it will run both backend and frontend
 
 ## Todo
