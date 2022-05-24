@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "projects": {
+        "web": {
+            "root": "packages/web",
+            "type": "library"
+        },
+        "server": {
+            "root": "packages/server",
+            "type": "library"
+        }
+    }
+  }
