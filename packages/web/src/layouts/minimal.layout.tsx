@@ -5,12 +5,7 @@ interface Props {
 }
 
 const MinimalLayout = ({ children }: Props) => {
-  return (
-    <div>
-      minimal
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default MinimalLayout;

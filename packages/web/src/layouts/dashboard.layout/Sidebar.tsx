@@ -18,16 +18,42 @@ import {
   ExpandMore,
   Send as SendIcon,
   Drafts as DraftsIcon,
+  Person,
+  Article,
+  Add,
+  List as ListIcon,
+  Home,
 } from "@mui/icons-material";
 
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import routes from "src/constants/routes.constant";
+// import routes from "src/constants/routes.constant";
 import { Collapse, ListSubheader } from "@mui/material";
 
 const drawerWidth = 240;
 
 interface Props {}
+
+const routes = [
+  {
+    label: "Home",
+    path: "/dashboard",
+    icon: <Home />,
+  },
+  {
+    label: "Posts",
+    icon: <Article />,
+    subs: [
+      { label: "Add Post", path: "/dashboard/posts/new", icon: <Add /> },
+      { label: "All Post", path: "/dashboard/posts/all", icon: <ListIcon /> },
+    ],
+  },
+  {
+    label: "Profile",
+    path: "/dashboard/profile",
+    icon: <Person />,
+  },
+];
 
 export default function Sidebar(props: Props) {
   const [open, setOpen] = React.useState(false);
@@ -40,85 +66,52 @@ export default function Sidebar(props: Props) {
       <Toolbar />
       <Divider />
       <List>
-        {/* {routes.map((item, index) => (
-          <ListItem key={item.label} disablePadding>
-            <ListItemButton component="a" href={item.path}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
-        {/* {routes.map((item, index) => {
-          if (!item.subs) {
-            return (
-              <ListItem key={item.label} disablePadding>
-                <ListItemButton component="a" href={item.path}>
-                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </ListItem>
-            );
-          } else {
-            return (
-              <ListItem key={item.label} disablePadding>
-                <ListItemButton component="a" href={item.path} onClick={handleClick}>
-                  <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText primary="Starred" />
-                    </ListItemButton>
-                  </List>
-                </Collapse>
-              </ListItem>
-            );
-          }
-        })} */}
-
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           component="nav"
           aria-labelledby="nested-list-subheader"
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-              Nested List Items
-            </ListSubheader>
-          }
+          // subheader={
+          //   <ListSubheader component="div" id="nested-list-subheader">
+          //     Nested List Items
+          //   </ListSubheader>
+          // }
         >
-          <ListItemButton>
-            <ListItemIcon>
-              <SendIcon />
-            </ListItemIcon>
-            <ListItemText primary="Sent mail" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemIcon>
-              <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Drafts" />
-          </ListItemButton>
-          <ListItemButton onClick={handleClick}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Inbox" />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItemButton>
-            </List>
-          </Collapse>
+          {routes.map((item, index) => {
+            if (item.subs) {
+              return (
+                <>
+                  <ListItemButton key={index} onClick={handleClick}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.label} />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                  </ListItemButton>
+
+                  <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {item.subs.map((child, childIndex) => {
+                        return (
+                          <ListItemButton sx={{ pl: 4 }} key={childIndex} component="a" href={child.path}>
+                            <ListItemIcon>
+                              {child.icon}
+                              {/* <StarBorder /> */}
+                            </ListItemIcon>
+                            <ListItemText primary={child.label} />
+                          </ListItemButton>
+                        );
+                      })}
+                    </List>
+                  </Collapse>
+                </>
+              );
+            } else {
+              return (
+                <ListItemButton key={index} component="a" href={item.path}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              );
+            }
+          })}
         </List>
       </List>
       <Divider />
