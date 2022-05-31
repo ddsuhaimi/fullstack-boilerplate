@@ -29,8 +29,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 // import routes from "src/constants/routes.constant";
 import { Collapse, ListSubheader } from "@mui/material";
-
-const drawerWidth = 240;
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Props {}
 
@@ -43,6 +44,7 @@ const routes = [
   {
     label: "Posts",
     icon: <Article />,
+    path: "/dashboard/posts",
     subs: [
       { label: "Add Post", path: "/dashboard/posts/new", icon: <Add /> },
       { label: "All Post", path: "/dashboard/posts/all", icon: <ListIcon /> },
@@ -56,67 +58,81 @@ const routes = [
 ];
 
 export default function Sidebar(props: Props) {
-  const [open, setOpen] = React.useState(false);
+  const [openNavs, setOpenNavs] = React.useState<string[]>([]);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClick = (path: string) => {
+    if (isSelectedPath(path)) {
+      setOpenNavs(openNavs.filter((item) => item !== path));
+    } else {
+      setOpenNavs([...openNavs, path]);
+    }
   };
+
+  const isSelectedPath = (path: string) => {
+    let hasMatchRoute = false;
+    openNavs.map((route) => {
+      if (route.includes(path)) {
+        hasMatchRoute = true;
+      }
+    });
+    return hasMatchRoute;
+  };
+
   return (
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        <List
-          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-          // subheader={
-          //   <ListSubheader component="div" id="nested-list-subheader">
-          //     Nested List Items
-          //   </ListSubheader>
-          // }
-        >
-          {routes.map((item, index) => {
-            if (item.subs) {
-              return (
-                <>
-                  <ListItemButton key={index} onClick={handleClick}>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.label} />
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                  </ListItemButton>
+      <List
+        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        // subheader={
+        //   <ListSubheader component="div" id="nested-list-subheader">
+        //     Nested List Items
+        //   </ListSubheader>
+        // }
+      >
+        {routes.map((item, index) => {
+          if (item.subs) {
+            return (
+              <div key={index}>
+                <ListItemButton key={index} onClick={(e) => handleClick(item.path)}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.label} />
+                  {isSelectedPath(item.path) ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
 
-                  <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                      {item.subs.map((child, childIndex) => {
-                        return (
-                          <ListItemButton sx={{ pl: 4 }} key={childIndex} component="a" href={child.path}>
-                            <ListItemIcon>
-                              {child.icon}
-                              {/* <StarBorder /> */}
-                            </ListItemIcon>
+                <Collapse in={isSelectedPath(item.path)} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {item.subs.map((child, childIndex) => {
+                      return (
+                        <Link href={child.path} key={childIndex}>
+                          <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemIcon>{child.icon}</ListItemIcon>
                             <ListItemText primary={child.label} />
                           </ListItemButton>
-                        );
-                      })}
-                    </List>
-                  </Collapse>
-                </>
-              );
-            } else {
-              return (
-                <ListItemButton key={index} component="a" href={item.path}>
+                        </Link>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              </div>
+            );
+          } else {
+            return (
+              <Link href={item.path} key={index}>
+                <ListItemButton>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                 </ListItemButton>
-              );
-            }
-          })}
-        </List>
+              </Link>
+            );
+          }
+        })}
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Logout"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
