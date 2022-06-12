@@ -1,5 +1,5 @@
 import { PaletteMode } from "@mui/material";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { getStoredTheme, getThemeOptions, setStoredTheme } from "../../utils/theme";
 
