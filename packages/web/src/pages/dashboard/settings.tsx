@@ -17,10 +17,10 @@ const Settings: NextPageWithLayout = (props: Props) => {
   return (
     <MainCard title="Settings">
       <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
-        <Grid item xs={8}>
+        <Grid item xs={12} md>
           Color Mode
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md>
           <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
             {colorMode.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>

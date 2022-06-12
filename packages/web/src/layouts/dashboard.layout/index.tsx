@@ -10,6 +10,7 @@ import Drawer from "@mui/material/Drawer";
 // import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Header from "./Header";
+import { useTheme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
@@ -18,7 +19,7 @@ interface Props {
 }
 const DashboardLayout = ({ children }: Props) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const theme = useTheme();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -28,7 +29,10 @@ const DashboardLayout = ({ children }: Props) => {
       <CssBaseline />
       <AppBar
         position="fixed"
+        elevation={0}
+        color="inherit"
         sx={{
+          background: theme.palette.background.default,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}
@@ -48,7 +52,7 @@ const DashboardLayout = ({ children }: Props) => {
           }}
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, border: 0 },
           }}
         >
           <Sidebar />
@@ -57,7 +61,7 @@ const DashboardLayout = ({ children }: Props) => {
           variant="permanent"
           sx={{
             display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, border: 0 },
           }}
           open
         >
@@ -66,7 +70,14 @@ const DashboardLayout = ({ children }: Props) => {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: "100vh", background: "palette.background.default" }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          height: "100vh",
+          background: theme.palette.divider,
+          borderRadius: 2,
+        }}
       >
         <Toolbar />
         {children}

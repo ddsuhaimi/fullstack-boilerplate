@@ -7,8 +7,8 @@ type Props = {
 
 const MainCard = ({ children, title }: Props) => {
   return (
-    <Card sx={{ minWidth: 275 }}>
-      <CardHeader title={<Typography variant="h3">{title}</Typography>} />
+    <Card elevation={0} sx={{ minWidth: 275, borderRadius: 2 }}>
+      <CardHeader title={<Typography variant="h4">{title}</Typography>} />
       <Divider />
       <CardContent>{children}</CardContent>
     </Card>
