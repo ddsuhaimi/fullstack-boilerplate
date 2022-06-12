@@ -1,6 +1,6 @@
-import { Avatar, Badge, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
+import { Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import { Menu as MenuIcon, Notifications as NotificationsIcon, Person, ExpandMore, Logout, PersonAdd, Settings } from "@mui/icons-material";
+import { Menu as MenuIcon, Logout, Settings } from "@mui/icons-material";
 
 type Props = {
   handleDrawerToggle: () => void;

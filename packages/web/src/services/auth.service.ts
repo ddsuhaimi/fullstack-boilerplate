@@ -13,11 +13,7 @@ export const login = async (email: string, password: string) => {
   }
 };
 
-export const register = async (
-  email: string,
-  password: string,
-  passwordConfirm: string
-): Promise<any> => {
+export const register = async (email: string, password: string, passwordConfirm: string): Promise<any> => {
   try {
     const result = await axios.post("auth/register", {
       email,

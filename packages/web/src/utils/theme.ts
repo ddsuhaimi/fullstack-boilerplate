@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PaletteMode } from "@mui/material";
 import { ThemeOptions } from "@mui/material/styles";
 

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import axios from "axios";
 
 //#region actions
@@ -25,18 +25,15 @@ export const create = createAsyncThunk(
     }
   }
 );
-export const getAll = createAsyncThunk(
-  "post/getAll",
-  async (query: { filter: object; sort: object }, { rejectWithValue }) => {
-    const respons = await axios.get("/posts", { params: query });
+export const getAll = createAsyncThunk("post/getAll", async (query: { filter: object; sort: object }, { rejectWithValue }) => {
+  const respons = await axios.get("/posts", { params: query });
 
-    if (respons.data.success) {
-      return respons.data.data;
-    } else {
-      return rejectWithValue(respons.data.errors);
-    }
+  if (respons.data.success) {
+    return respons.data.data;
+  } else {
+    return rejectWithValue(respons.data.errors);
   }
-);
+});
 
 export const getOnePost = createAsyncThunk("post/getOnePost", async (postId: string, { rejectWithValue }) => {
   const respons = await axios.get(`/posts/${postId}`);

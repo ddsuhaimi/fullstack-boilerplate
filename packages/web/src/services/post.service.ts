@@ -6,10 +6,10 @@ interface postData {
 export const createOne = async (data: postData): Promise<any> => {
   try {
     const result = await axios.post("posts", data);
-    console.log("result", result)
+    console.log("result", result);
     return result.data;
   } catch (error) {
-    console.log("error", error)
+    console.log("error", error);
     if (axios.isAxiosError(error)) {
       return error?.response?.data;
     }

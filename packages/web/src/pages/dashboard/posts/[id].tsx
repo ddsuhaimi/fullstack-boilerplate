@@ -5,6 +5,7 @@ import React from "react";
 
 type Props = {};
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Post: NextPageWithLayout = (props: Props) => {
   return <MainCard></MainCard>;
 };

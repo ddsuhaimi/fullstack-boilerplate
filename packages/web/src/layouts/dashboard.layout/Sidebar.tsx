@@ -1,36 +1,26 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import {
-  Menu as MenuIcon,
   Mail as MailIcon,
   Inbox as InboxIcon,
-  StarBorder,
   ExpandLess,
   ExpandMore,
-  Send as SendIcon,
-  Drafts as DraftsIcon,
   Person,
   Article,
   Add,
   List as ListIcon,
   Home,
+  Settings,
 } from "@mui/icons-material";
 
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 // import routes from "src/constants/routes.constant";
-import { Collapse, ListSubheader } from "@mui/material";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { Collapse } from "@mui/material";
 import Link from "next/link";
 
 interface Props {}
@@ -55,8 +45,14 @@ const routes = [
     path: "/dashboard/profile",
     icon: <Person />,
   },
+  {
+    label: "Settings",
+    path: "/dashboard/settings",
+    icon: <Settings />,
+  },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Sidebar(props: Props) {
   const [openNavs, setOpenNavs] = React.useState<string[]>([]);
 

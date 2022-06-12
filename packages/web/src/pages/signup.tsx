@@ -1,6 +1,5 @@
 import Link from "@mui/material/Link";
-import { ThemeProvider } from "@emotion/react";
-import { Typography, createTheme, Container, CssBaseline, Box, Avatar, Grid, TextField, FormControlLabel, Checkbox, Button } from "@mui/material";
+import { Typography, Container, CssBaseline, Box, Avatar, Grid, TextField, FormControlLabel, Checkbox, Button } from "@mui/material";
 import { LockOutlined as LockOutlinedIcon } from "@mui/icons-material";
 import { NextPageWithLayout } from "@/types/layout.types";
 import MinimalLayout from "@/layouts/minimal.layout";

@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const ColorModeContext = createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = createContext({ toggleColorMode: () => {}, mode: "" });
 
 const MUIThemeProvider = (props: Props) => {
   const [mode, setMode] = useState<PaletteMode>("light"); // default is light mode
@@ -27,13 +27,14 @@ const MUIThemeProvider = (props: Props) => {
         setMode(newMode);
         setStoredTheme(newMode);
       },
+      mode: mode,
     }),
     [mode]
   );
 
   const theme = useMemo(() => createTheme(getThemeOptions(mode)), [mode]);
 
-  const customTheme = useTheme(); // for use in other components - could potentially use theme
+  // const customTheme = useTheme(); // for use in other components - could potentially use theme
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>

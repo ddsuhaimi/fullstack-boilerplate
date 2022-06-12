@@ -7,6 +7,7 @@ import { NextPageWithLayout } from "../../types/layout.types";
 
 type Props = {};
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Dashboard: NextPageWithLayout = (props: Props) => {
   return (
     <MainCard title="Dashboard">

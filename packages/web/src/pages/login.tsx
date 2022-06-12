@@ -20,6 +20,7 @@ function Copyright(props: any) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Login: NextPageWithLayout = (props: Props) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
