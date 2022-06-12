@@ -92,7 +92,7 @@ export default function Sidebar(props: Props) {
           if (item.subs) {
             return (
               <div key={index}>
-                <ListItemButton key={index} onClick={(e) => handleClick(item.path)}>
+                <ListItemButton key={index} onClick={() => handleClick(item.path)}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                   {isSelectedPath(item.path) ? <ExpandLess /> : <ExpandMore />}
