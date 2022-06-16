@@ -1,5 +1,5 @@
 import { PaletteMode } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { getStoredTheme, getThemeOptions, setStoredTheme } from "../../utils/theme";
 
@@ -34,7 +34,7 @@ const MUIThemeProvider = (props: Props) => {
 
   const theme = useMemo(() => createTheme(getThemeOptions(mode)), [mode]);
 
-  // const customTheme = useTheme(); // for use in other components - could potentially use theme
+  const customTheme = useTheme(); // for use in other components - could potentially use theme
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>

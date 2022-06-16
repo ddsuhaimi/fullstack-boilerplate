@@ -188,6 +188,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fontsource/public-sans@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/public-sans/-/public-sans-4.5.9.tgz#d49884638da7996bb0778699dfb840e44d4c30c5"
+  integrity sha512-f7ENFYyQwz7hrNv10/SPip+eczJPrwgNaP3FK6XiTMwRk9AJqI/asw9mcYc6nokHRJgmtLTq8FenN9BkEbl1iQ==
+
 "@fontsource/roboto@^4.5.7":
   version "4.5.7"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.7.tgz#292740a52fa2bac61b89f92e1c588037defe65cb"

@@ -45,6 +45,22 @@ const successPalette = {
 };
 
 const lightThemeOptions: ThemeOptions = {
+  typography: {
+    fontFamily: [
+      "-apple-system",
+      '"Public Sans"',
+      "Roboto",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
   palette: {
     mode: "light",
     // background: {

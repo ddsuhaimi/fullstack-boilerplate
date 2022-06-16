@@ -1,6 +1,7 @@
 import "@/styles/reset.style.css";
-import "@fontsource/roboto/400.css";
 import "@/styles/globals.style.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/public-sans/500.css";
 
 import type { AppProps } from "next/app";
 import MinimalLayout from "@/layouts/minimal.layout";

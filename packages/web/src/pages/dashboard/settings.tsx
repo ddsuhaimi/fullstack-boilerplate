@@ -1,12 +1,13 @@
 import MainCard from "@/components/card.component/MainCard";
 import DashboardLayout from "@/layouts/dashboard.layout";
 import { NextPageWithLayout } from "@/types/layout.types";
-import { Grid } from "@mui/material";
+import { Card, CardContent, CardHeader, Divider, Grid } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import IconButton from "@mui/material/IconButton";
 import { useContext } from "react";
 import { ColorModeContext } from "@/components/hocs.component/MUIThemeProvider";
+import WidgetCard from "@/components/card.component/WidgetCard";
 
 type Props = {};
 
@@ -16,16 +17,18 @@ const Settings: NextPageWithLayout = (props: Props) => {
 
   return (
     <MainCard title="Settings">
-      <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
-        <Grid item xs={12} md>
-          Color Mode
+      <WidgetCard title="Appearance">
+        <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
+          <Grid item xs={12} md>
+            Color Mode
+          </Grid>
+          <Grid item xs={12} md>
+            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+              {colorMode.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md>
-          <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-            {colorMode.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-        </Grid>
-      </Grid>
+      </WidgetCard>
     </MainCard>
   );
 };

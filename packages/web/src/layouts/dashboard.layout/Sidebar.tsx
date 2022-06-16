@@ -16,12 +16,14 @@ import {
   List as ListIcon,
   Home,
   Settings,
+  Logout,
 } from "@mui/icons-material";
 
 import Toolbar from "@mui/material/Toolbar";
 // import routes from "src/constants/routes.constant";
 import { Collapse } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {}
 
@@ -52,15 +54,24 @@ const routes = [
   },
 ];
 
+const mainNavs = [
+  {
+    label: "Logout",
+    path: "/logout",
+    icon: <Logout />,
+  },
+];
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Sidebar(props: Props) {
+  const router = useRouter();
   const [openNavs, setOpenNavs] = React.useState<string[]>([]);
 
   const handleClick = (path: string) => {
     if (isSelectedPath(path)) {
-      setOpenNavs(openNavs.filter((item) => item !== path));
+      setOpenNavs((openNavs) => openNavs.filter((item) => item !== path));
     } else {
-      setOpenNavs([...openNavs, path]);
+      setOpenNavs((openNavs) => [...openNavs, path]);
     }
   };
 
@@ -73,7 +84,7 @@ export default function Sidebar(props: Props) {
     });
     return hasMatchRoute;
   };
-
+  console.log(router);
   return (
     <div>
       <Toolbar />
@@ -92,7 +103,7 @@ export default function Sidebar(props: Props) {
           if (item.subs) {
             return (
               <div key={index}>
-                <ListItemButton key={index} onClick={() => handleClick(item.path)}>
+                <ListItemButton key={index} onClick={() => handleClick(item.path)} selected={router.route === item.path}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                   {isSelectedPath(item.path) ? <ExpandLess /> : <ExpandMore />}
@@ -103,7 +114,7 @@ export default function Sidebar(props: Props) {
                     {item.subs.map((child, childIndex) => {
                       return (
                         <Link href={child.path} key={childIndex}>
-                          <ListItemButton sx={{ pl: 4 }}>
+                          <ListItemButton sx={{ pl: 4 }} selected={router.route === child.path}>
                             <ListItemIcon>{child.icon}</ListItemIcon>
                             <ListItemText primary={child.label} />
                           </ListItemButton>
@@ -117,7 +128,7 @@ export default function Sidebar(props: Props) {
           } else {
             return (
               <Link href={item.path} key={index}>
-                <ListItemButton>
+                <ListItemButton selected={router.route === item.path}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                 </ListItemButton>
@@ -128,13 +139,15 @@ export default function Sidebar(props: Props) {
       </List>
       <Divider />
       <List>
-        {["Logout"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        {mainNavs.map((item, index) => (
+          // <ListItem key={item.path} disablePadding>
+          <Link href={item.path} key={index}>
+            <ListItemButton selected={router.route === item.path}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.label} />
             </ListItemButton>
-          </ListItem>
+          </Link>
+          // </ListItem>
         ))}
       </List>
     </div>

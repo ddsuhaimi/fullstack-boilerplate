@@ -1,8 +1,8 @@
-import Link from "@mui/material/Link";
 import { Typography, Container, CssBaseline, Box, Avatar, Grid, TextField, FormControlLabel, Checkbox, Button } from "@mui/material";
 import { LockOutlined as LockOutlinedIcon } from "@mui/icons-material";
 import { NextPageWithLayout } from "@/types/layout.types";
 import MinimalLayout from "@/layouts/minimal.layout";
+import Link from "next/link";
 
 function Copyright(props: any) {
   return (
@@ -74,9 +74,7 @@ const SignUp: NextPageWithLayout = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <Link href="/login">Already have an account? Sign in</Link>
               </Grid>
             </Grid>
           </Box>

@@ -4,27 +4,18 @@ import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControl
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import React from "react";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {};
 
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Login: NextPageWithLayout = (props: Props) => {
+  const router = useRouter();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    router.push("/dashboard");
     console.log({
       email: data.get("email"),
       password: data.get("password"),
@@ -74,19 +65,14 @@ const Login: NextPageWithLayout = (props: Props) => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body1">
-                  Forgot password?
-                </Link>
+                <NextLink href="/forgot-password">Forgot password?</NextLink>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <NextLink href="signup">Don&apos;t have an account? Sign Up</NextLink>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Box>
     </Container>
   );

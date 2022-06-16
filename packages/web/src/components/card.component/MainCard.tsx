@@ -1,4 +1,4 @@
-import { Card, CardHeader, Typography, Divider, CardContent } from "@mui/material";
+import { Typography, Box, Container } from "@mui/material";
 
 type Props = {
   children?: React.ReactNode;
@@ -7,11 +7,12 @@ type Props = {
 
 const MainCard = ({ children, title }: Props) => {
   return (
-    <Card elevation={0} sx={{ minWidth: 275, borderRadius: 2 }}>
-      <CardHeader title={<Typography variant="h4">{title}</Typography>} />
-      <Divider />
-      <CardContent>{children}</CardContent>
-    </Card>
+    <Container>
+      <Box sx={{ marginTop: 4, marginBottom: 4, background: "transparent", borderRadius: 2 }}>
+        <Typography variant="h4">{title}</Typography>
+      </Box>
+      {children}
+    </Container>
   );
 };
 
