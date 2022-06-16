@@ -1,6 +1,6 @@
 import MinimalLayout from "@/layouts/minimal.layout";
 import { NextPageWithLayout } from "@/types/layout.types";
-import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link } from "@mui/material";
+import { Container, CssBaseline, Box, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import React from "react";

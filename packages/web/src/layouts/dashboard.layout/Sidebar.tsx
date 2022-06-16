@@ -1,23 +1,10 @@
 import * as React from "react";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import {
-  Mail as MailIcon,
-  Inbox as InboxIcon,
-  ExpandLess,
-  ExpandMore,
-  Person,
-  Article,
-  Add,
-  List as ListIcon,
-  Home,
-  Settings,
-  Logout,
-} from "@mui/icons-material";
+import { ExpandLess, ExpandMore, Person, Article, Add, List as ListIcon, Home, Settings, Logout } from "@mui/icons-material";
 
 import Toolbar from "@mui/material/Toolbar";
 // import routes from "src/constants/routes.constant";
@@ -84,7 +71,6 @@ export default function Sidebar(props: Props) {
     });
     return hasMatchRoute;
   };
-  console.log(router);
   return (
     <div>
       <Toolbar />
