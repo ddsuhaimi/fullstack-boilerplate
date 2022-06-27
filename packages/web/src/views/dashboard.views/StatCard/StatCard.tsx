@@ -1,4 +1,5 @@
-import { Grid } from "@mui/material";
+import WidgetCard from "@/components/card.component/WidgetCard";
+import { Card, CardContent, Grid } from "@mui/material";
 import React from "react";
 
 type Props = {};
@@ -7,9 +8,21 @@ type Props = {};
 const StatCard = (props: Props) => {
   return (
     <Grid container spacing={2} flex="column" justifyContent="space-between">
-      <Grid item>tes</Grid>
-      <Grid item>tes</Grid>
-      <Grid item>tes</Grid>
+      <Grid item xs={4}>
+        <Card elevation={0}>
+          <CardContent>content</CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={4}>
+        <Card elevation={0}>
+          <CardContent>content</CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={4}>
+        <Card elevation={0}>
+          <CardContent>content</CardContent>
+        </Card>
+      </Grid>
     </Grid>
   );
 };

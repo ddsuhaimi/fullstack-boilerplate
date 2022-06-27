@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import { useContext } from "react";
 import { ColorModeContext } from "@/components/hocs.component/MUIThemeProvider";
 import WidgetCard from "@/components/card.component/WidgetCard";
+import PageTitle from "@/components/card.component/PageTitle";
 
 type Props = {};
 
@@ -16,7 +17,9 @@ const Settings: NextPageWithLayout = (props: Props) => {
   const colorMode = useContext(ColorModeContext);
 
   return (
-    <MainCard title="Settings">
+    <MainCard>
+      <PageTitle title="Settings" />
+
       <WidgetCard title="Appearance">
         <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
           <Grid item xs={12} md>

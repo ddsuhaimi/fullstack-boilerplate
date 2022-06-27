@@ -1,4 +1,5 @@
 import MainCard from "@/components/card.component/MainCard";
+import PageTitle from "@/components/card.component/PageTitle";
 import React from "react";
 import StatCard from "src/views/dashboard.views/StatCard/StatCard";
 import DashboardLayout from "../../layouts/dashboard.layout";
@@ -9,7 +10,8 @@ type Props = {};
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Dashboard: NextPageWithLayout = (props: Props) => {
   return (
-    <MainCard title="Dashboard">
+    <MainCard>
+      <PageTitle title="Dashboard" />
       <StatCard />
     </MainCard>
   );

@@ -1,4 +1,5 @@
 import MainCard from "@/components/card.component/MainCard";
+import PageTitle from "@/components/card.component/PageTitle";
 import WidgetCard from "@/components/card.component/WidgetCard";
 import DashboardLayout from "@/layouts/dashboard.layout";
 import { NextPageWithLayout } from "@/types/layout.types";
@@ -21,7 +22,9 @@ const rows = [
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AllPost: NextPageWithLayout = (props: Props) => {
   return (
-    <MainCard title="All post">
+    <MainCard>
+      <PageTitle title="All post" />
+
       <WidgetCard title="Latest post">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
