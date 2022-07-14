@@ -1,14 +1,19 @@
-import {createConnection, getConnectionOptions, ConnectionOptions} from "typeorm";
+import {
+  createConnection,
+  getConnectionOptions,
+  ConnectionOptions,
+} from "typeorm";
 // import {dbCreateConnection} from './typeorm/dbCreateConnection'
 // import config from './typeorm/config/ormconfig'
-import './orm'
+import "./orm";
 // import logger from './shared/Logger';
 
 export async function intializeDB(): Promise<void> {
-//   const conn = await dbCreateConnection()
-//   if (coiwn) {
-    if (true) {
-        console.log("database connection success")
+  //   const conn = await dbCreateConnection()
+  //   if (coiwn) {
+  // eslint-disable-next-line no-constant-condition
+  if (true) {
+    console.log("database connection success");
   }
 
   // console.log("config", config)
@@ -31,5 +36,5 @@ export async function intializeDB(): Promise<void> {
   //   })
   // const options = await getConnectionOptions()
   // console.log("options", options)
-//   logger.info('Database successfully initialized');
+  //   logger.info('Database successfully initialized');
 }

@@ -10,6 +10,7 @@
   },
   "eslint.validate": [
     "javascript",
+    "typescript",
     "javascriptreact",
     "html",
     "typescriptreact"

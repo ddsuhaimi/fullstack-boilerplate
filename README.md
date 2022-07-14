@@ -41,6 +41,8 @@ Both backend and frontend use typescript. Not really a fan of it, but I think th
 ## Todo
 
 I will add more features in the future. Currently will focus more on tooling first like setting up eslint.
-### DONE
-- Web - Eslint
-- Web - Prettier
+
+- [X] Server - Eslint
+- [X] Server - Prettier
+- [X] Web - Eslint
+- [X] Web - Prettier

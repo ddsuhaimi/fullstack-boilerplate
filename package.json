@@ -5,10 +5,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "server-dev": "nx run server:dev",
+    "server:dev": "nx run server:dev",
+    "server:lint": "nx run server:lint",
     "backend-dev": "nx run crosstr-backend:dev",
-    "web-dev": "nx run web:dev",
-    "dev": "run-p server-dev web-dev"
+    "web:dev": "nx run web:dev",
+    "web:lint": "nx run web:lint",
+    "dev": "run-p server-dev web-dev",
+    "lint": "run-p server-lint web-lint"
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
