@@ -1,12 +1,7 @@
 import MainCard from "@/components/card.component/MainCard";
 import DashboardLayout from "@/layouts/dashboard.layout";
 import { NextPageWithLayout } from "@/types/layout.types";
-import { Card, CardContent, CardHeader, Divider, Grid } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import IconButton from "@mui/material/IconButton";
 import { useContext } from "react";
-import { ColorModeContext } from "@/components/hocs.component/MUIThemeProvider";
 import WidgetCard from "@/components/card.component/WidgetCard";
 import PageTitle from "@/components/card.component/PageTitle";
 
@@ -14,14 +9,14 @@ type Props = {};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Settings: NextPageWithLayout = (props: Props) => {
-  const colorMode = useContext(ColorModeContext);
+  // const colorMode = useContext(ColorModeContext);
 
   return (
     <MainCard>
       <PageTitle title="Settings" />
 
       <WidgetCard title="Appearance">
-        <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
+        {/* <Grid container spacing={2} sx={{ display: "flex", alignItems: "center" }}>
           <Grid item xs={12} md>
             Color Mode
           </Grid>
@@ -30,7 +25,7 @@ const Settings: NextPageWithLayout = (props: Props) => {
               {colorMode.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
           </Grid>
-        </Grid>
+        </Grid> */}
       </WidgetCard>
     </MainCard>
   );

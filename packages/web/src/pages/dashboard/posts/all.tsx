@@ -3,7 +3,6 @@ import PageTitle from "@/components/card.component/PageTitle";
 import WidgetCard from "@/components/card.component/WidgetCard";
 import DashboardLayout from "@/layouts/dashboard.layout";
 import { NextPageWithLayout } from "@/types/layout.types";
-import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import React from "react";
 
 type Props = {};
@@ -26,7 +25,7 @@ const AllPost: NextPageWithLayout = (props: Props) => {
       <PageTitle title="All post" />
 
       <WidgetCard title="Latest post">
-        <TableContainer component={Paper}>
+        {/* <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -51,7 +50,7 @@ const AllPost: NextPageWithLayout = (props: Props) => {
               ))}
             </TableBody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
       </WidgetCard>
     </MainCard>
   );

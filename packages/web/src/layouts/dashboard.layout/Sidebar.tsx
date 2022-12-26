@@ -1,14 +1,6 @@
 import * as React from "react";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { ExpandLess, ExpandMore, Person, Article, Add, List as ListIcon, Home, Settings, Logout } from "@mui/icons-material";
 
-import Toolbar from "@mui/material/Toolbar";
 // import routes from "src/constants/routes.constant";
-import { Collapse } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -18,26 +10,22 @@ const routes = [
   {
     label: "Home",
     path: "/dashboard",
-    icon: <Home />,
   },
   {
     label: "Posts",
-    icon: <Article />,
     path: "/dashboard/posts",
     subs: [
-      { label: "Add Post", path: "/dashboard/posts/new", icon: <Add /> },
-      { label: "All Post", path: "/dashboard/posts/all", icon: <ListIcon /> },
+      { label: "Add Post", path: "/dashboard/posts/new" },
+      { label: "All Post", path: "/dashboard/posts/all" },
     ],
   },
   {
     label: "Profile",
     path: "/dashboard/profile",
-    icon: <Person />,
   },
   {
     label: "Settings",
     path: "/dashboard/settings",
-    icon: <Settings />,
   },
 ];
 
@@ -45,7 +33,6 @@ const mainNavs = [
   {
     label: "Logout",
     path: "/logout",
-    icon: <Logout />,
   },
 ];
 
@@ -73,7 +60,7 @@ export default function Sidebar(props: Props) {
   };
   return (
     <div>
-      <Toolbar />
+      {/* <Toolbar />
       <Divider />
       <List
         sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -135,7 +122,7 @@ export default function Sidebar(props: Props) {
           </Link>
           // </ListItem>
         ))}
-      </List>
+      </List> */}
     </div>
   );
 }
