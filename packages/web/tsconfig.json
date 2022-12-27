@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -21,11 +21,17 @@
       "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/services/*": ["./src/services/*"],
-      "@/pages/*": ["./src/pages/*"],
+      "@/pages/*": ["src/_pages/*"],
       "@/redux-toolkit/*": ["./src/redux-toolkit/*"],
       "@/styles/*": ["./src/styles/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "noImplicitAny": false /* Enable error reporting for expressions and declarations with an implied `any` type.. */
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

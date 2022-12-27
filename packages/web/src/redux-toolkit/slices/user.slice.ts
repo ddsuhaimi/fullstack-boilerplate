@@ -1,5 +1,6 @@
 import { createAsyncThunk, createReducer, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "../store";
 
 //#region actions
 export const increment = createAction("counter/increment");
@@ -128,3 +129,5 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.error = payload as object;
     });
 });
+
+export const selectUser = (state: RootState) => state.user;
