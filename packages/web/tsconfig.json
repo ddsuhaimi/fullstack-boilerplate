@@ -17,12 +17,13 @@
     "baseUrl": "./",
     "paths": {
       "@/components/*": ["./src/components/*"],
-      "@/layouts/*": ["./src/layouts/*"],
+      "@/layouts/*": ["src/components/layouts/*"],
       "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/services/*": ["./src/services/*"],
-      "@/pages/*": ["src/_pages/*"],
-      "@/redux-toolkit/*": ["./src/redux-toolkit/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/app/*": ["src/app/*"],
+      "@/redux-toolkit/*": ["src/redux-toolkit/*"],
       "@/styles/*": ["./src/styles/*"]
     },
     "plugins": [

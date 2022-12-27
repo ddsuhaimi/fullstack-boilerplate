@@ -7,7 +7,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 
 import type { AppProps } from "next/app";
-import Providers from "@/components/providers";
+import GlobalProviders from "@/components/layouts/GlobalProviders";
 // import { wrapper } from "@/redux-toolkit/store";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -21,7 +21,7 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
 
-  return <Providers>{getLayout(<Component {...pageProps} />)}</Providers>;
+  return <GlobalProviders>{getLayout(<Component {...pageProps} />)}</GlobalProviders>;
 }
 
 // export default wrapper.withRedux(MyApp);

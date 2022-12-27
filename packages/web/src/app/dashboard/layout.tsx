@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/DashboardLayout";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
 
 // This is a Server Component
 export default function Layout({ children }: { children: React.ReactNode }) {
