@@ -2,7 +2,7 @@ import "@/styles/reset.style.css";
 import "@/styles/globals.style.css";
 
 // import { wrapper } from "@/redux-toolkit/store";
-import GlobalProviders from "@/components/layouts/GlobalProviders";
+import GlobalProviders from "src/providers/GlobalProviders";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
