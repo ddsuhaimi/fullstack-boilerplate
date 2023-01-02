@@ -24,37 +24,37 @@ const apiClient = Axios.create({
 });
 
 // intercept when request
-// apiClient.interceptors.request.use(
-//   (config) => {
-//     if (isDebug) {
-//       // can output log here
-//     }
+apiClient.interceptors.request.use(
+  (config) => {
+    if (isDebug) {
+      // can output log here
+    }
 
-//     // can make common setting while request here
+    // can make common setting while request here
 
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-// // intercept while response
-// apiClient.interceptors.response.use(
-//   (response) => {
-//     if (isDebug) {
-//       // can output log here
-//     }
+// intercept while response
+apiClient.interceptors.response.use(
+  (response) => {
+    if (isDebug) {
+      // can output log here
+    }
 
-//     return response;
-//   },
-//   (error) => {
-//     if (isDebug) {
-//       // can output log here
-//     }
+    return response;
+  },
+  (error) => {
+    if (isDebug) {
+      // can output log here
+    }
 
-//     return Promise.reject(error);
-//   }
+    return Promise.reject(error);
+  }
 );
 
 export default apiClient;

@@ -9,7 +9,6 @@ export const createOne = async (data: postData): Promise<any> => {
     console.log("result", result);
     return result.data;
   } catch (error) {
-    console.log("error", error);
     if (axios.isAxiosError(error)) {
       return error?.response?.data;
     }

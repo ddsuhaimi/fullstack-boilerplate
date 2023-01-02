@@ -7,7 +7,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 
 import type { AppProps } from "next/app";
-import GlobalProviders from "@/components/layouts/GlobalProviders";
+import GlobalProviders from "src/providers/GlobalProviders";
 // import { wrapper } from "@/redux-toolkit/store";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

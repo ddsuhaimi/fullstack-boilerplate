@@ -23,6 +23,7 @@
       "@/services/*": ["./src/services/*"],
       "@/pages/*": ["src/pages/*"],
       "@/app/*": ["src/app/*"],
+      "@/libs/*": ["src/libs/*"],
       "@/redux-toolkit/*": ["src/redux-toolkit/*"],
       "@/styles/*": ["./src/styles/*"]
     },
