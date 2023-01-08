@@ -5,7 +5,6 @@ export const useDidMountEffect = (func: Function, deps: Array<any>) => {
   const didMount = useRef(false);
   let a = "a";
   const d = "B";
-  d = "C";
 
   useEffect(() => {
     if (didMount.current) func();

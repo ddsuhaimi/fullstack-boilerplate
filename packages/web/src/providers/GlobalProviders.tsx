@@ -1,7 +1,7 @@
 "use client";
 
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "../redux-toolkit/store";
+import { store } from "@/redux-toolkit/store";
 // import { wrapper } from "@/redux-toolkit/store";
 
 function GlobalProviders({ children }: { children: any }) {

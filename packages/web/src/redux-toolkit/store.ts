@@ -30,7 +30,7 @@ export const store = makeStore();
 
 type Store = ReturnType<typeof makeStore>;
 
-// export const wrapper = createWrapper(makeStore, { debug: true });
+export const wrapper = createWrapper(makeStore, { debug: true });
 // END NEXT JS HYDRATE
 
 // export const store = configureStore({

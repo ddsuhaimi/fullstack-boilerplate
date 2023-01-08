@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
+    "@types/node": "^17.0.31",
     "npm-run-all": "^4.1.5",
     "nx": "14.1.4"
   },
