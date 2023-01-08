@@ -38,6 +38,22 @@ Both backend and frontend use typescript. Not really a fan of it, but I think th
 - If you don't have `nx` installed globally, then simply run `npx nx dev server` to run backend or `npx nx dev web` to run frontend.
 - Or you can run `yarn dev` and it will run both backend and frontend
 
+## Guide
+### Frontend
+- frontend packages is located under `packages/web`
+- it uses next js 13 with new app directory as default. You can switch to normal packages directory with these steps:
+1. change `packages/web/next.config.js` to disable new _app directory
+  ```
+    const nextConfig = {
+      reactStrictMode: true,
+      experimental: {
+        appDir: true,
+      },
+    };
+  ```
+2. Rename `packages/web/app` to `packages/web/_app`, or you can remove the folder instead if you are sure you will not be reverting back to new app directory structure
+3. Rename `packages/web/_pages` to `packages/web/pages`  
+
 ## Todo
 
 I will add more features in the future. Currently will focus more on tooling first like setting up eslint.
