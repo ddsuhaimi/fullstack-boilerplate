@@ -13,7 +13,7 @@
 // //   axios.defaults.headers.common["Authorization"] = token;
 // // };
 
-import Axios from "axios";
+import Axios, { AxiosError } from "axios";
 
 // DEBUG
 const isDebug = process.env.NODE_ENV !== "production";
@@ -52,8 +52,20 @@ apiClient.interceptors.response.use(
     if (isDebug) {
       // can output log here
     }
+    let response: Error | AxiosError | null | unknown | object = null;
+    if (Axios.isAxiosError(error)) {
+      if (error?.response?.data) {
+        response = error?.response?.data;
+      } else {
+        response = { error: error };
+      }
+    } else if (error instanceof Error) {
+      response = { error: error };
+    } else {
+      response = { error: { message: "Something went wrong" } };
+    }
 
-    return Promise.reject(error);
+    return Promise.reject(response);
   }
 );
 
