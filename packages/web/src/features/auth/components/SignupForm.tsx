@@ -3,13 +3,14 @@ import * as authService from "../services/authService";
 
 type Props = {};
 
-const LoginForm = (props: Props) => {
+const SignupForm = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  async function login(email: string, password: string) {
-    const loginResponse = await authService.login(email, password);
-    if (loginResponse.error) {
-      const { message } = loginResponse.error;
+  const [confirmPassword, setConfirmPassword] = useState("");
+  async function signup(email: string, password: string) {
+    const signupResponse = await authService.signup(email, password, confirmPassword);
+    if (signupResponse.error) {
+      const { message } = signupResponse.error;
       alert(message);
     }
     // happy path
@@ -19,15 +20,16 @@ const LoginForm = (props: Props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          login(email, password);
+          signup(email, password);
         }}
       >
         <input type="text" name="email" placeholder="youremail@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         <button type="submit">Submit</button>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default SignupForm;
